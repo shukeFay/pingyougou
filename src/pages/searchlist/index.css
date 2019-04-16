@@ -3,6 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: 200rpx;
 }
 .search {
   padding: 20rpx 16rpx;
@@ -29,6 +30,7 @@
   height: 100rpx;
   border-bottom: 1px solid #ddd;
   display: flex;
+  background-color: #fff;
 }
 .tab div {
   width: 33.33%;

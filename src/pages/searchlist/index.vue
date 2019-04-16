@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部区域 -->
-    <div class="mytop">
+    <div class="mytop" :style="{position:isScroll}">
       <div class="search">
         <div class="search_input">
           <input type="text" v-model="query">
@@ -10,9 +10,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- 顶部 tab -->
-    <div class="tab">
+       <div class="tab">
       <div
         @click="selectedIndex = index"
         :class="{active:selectedIndex===index}"
@@ -20,8 +18,11 @@
         :key="index"
       >{{item}}</div>
     </div>
+    </div>
+    <!-- 顶部 tab -->
+   
     <!-- 商品列表 -->
-    <div class="goodsList">
+    <div class="goodsList" :style="{marginTop:margintop}">
       <div class="item" v-for="(item,index) in goodsList" :key="index">
         <div class="box">
           <div class="left">
@@ -54,7 +55,9 @@ export default {
       query:'',
       pagenum: 1,
       pagesize: 10,
-      isEnd: false
+      isEnd: false,
+      isScroll:'static',
+      margintop: "0rpx"
     };
   },
   methods:{
@@ -99,13 +102,12 @@ export default {
       this.goodsList = this.goodsList.concat(res.data.data.goods)
     }
 
-      // 关闭导航中的加载框
-      // wx.hideNavigationBarLoading();
+      // 隐藏下拉框
+      wx.stopPullDownRefresh();
     }
   },
    mounted() {
-      this.pagenum = 1;
-    this.goodsList = [];
+    //  this.goodsList = [];
     // this.isEnd = false;
     //接收参数query
     this.query = this.$root.$mp.query.query;
@@ -118,12 +120,28 @@ export default {
     this.pagenum = this.pagenum +1;
     this.getDataList();
   },
+  onUnload(){
+    //  this.pagenum = 1;
+    this.goodsList = [];
+  },
+  onPageScroll(scroll){
+    if (scroll.scrollTop==0) {
+      this.isScroll = 'static';
+      this.margintop = "0rpx"
+    } else {
+      this.isScroll = 'fixed';
+      this.margintop = "200rpx"
+    }
+  },
   //下拉刷新事件
   onPullDownRefresh(){
     //刷新页面
-    this.pagenum = 1;
-    this.goodsList = [];
-    this.isEnd = false;
+      selectedIndex = 0
+      goodsList = []
+      pagenum = 1
+      pagesize = 10
+      isEnd = false
+      isScroll = 'static'
     // 重新获取数据
     this.getDataList();
   }
