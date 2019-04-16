@@ -10,11 +10,11 @@
           </div>
         </div>
       </div>
-       <div class="tab">
+       <div class="tab"> 
       <div
         @click="selectedIndex = index"
         :class="{active:selectedIndex===index}"
-        v-for="(item,index) in tabList"
+        v-for="(item,index) in tabList" 
         :key="index"
       >{{item}}</div>
     </div>
@@ -23,7 +23,7 @@
    
     <!-- 商品列表 -->
     <div class="goodsList" :style="{marginTop:margintop}">
-      <div class="item" v-for="(item,index) in goodsList" :key="index">
+      <a :href="'/pages/detail/main?id='+item.goods_id" class="item" v-for="(item,index) in goodsList" :key="index">
         <div class="box">
           <div class="left">
             <image :src="item.goods_small_logo"></image>
@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </a>
       <!-- <div class="footer">我也是有底线的</div> -->
     </div>
   </div>
