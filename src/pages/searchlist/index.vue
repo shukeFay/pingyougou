@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class="footer">我也是有底线的</div>
+      <!-- <div class="footer">我也是有底线的</div> -->
     </div>
   </div>
 </template>
@@ -70,10 +70,7 @@ export default {
          })
          return
       }
-      // 打开加载动画
-      wx.showLoading({
-        title: '加载中'
-      })
+     
       //  发送请求
     let url = "https://itjustfun.cn/api/public/v1/goods/search";
     let res = await request.get(url, {
@@ -101,14 +98,15 @@ export default {
     }else {
       this.goodsList = this.goodsList.concat(res.data.data.goods)
     }
-    // 关闭加载框
-      wx.hideLoading();
 
       // 关闭导航中的加载框
       // wx.hideNavigationBarLoading();
     }
   },
    mounted() {
+      this.pagenum = 1;
+    this.goodsList = [];
+    // this.isEnd = false;
     //接收参数query
     this.query = this.$root.$mp.query.query;
 
