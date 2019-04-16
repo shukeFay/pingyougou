@@ -1,0 +1,92 @@
+.mytop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.search{
+    padding: 20rpx 16rpx;
+    background-color: #eeeeee;
+    .search_input{
+        width: 100%;
+        height: 60rpx;
+        background-color: #fff;
+        border-radius: 8rpx;
+        position: relative;
+        input{
+            padding-left: 70rpx;
+            color: #666;
+            font-size: 16px;
+        }
+        .word{
+            position: absolute;
+            top: 28rpx;
+            left: 40rpx;
+        }
+    }
+    
+}
+.tab{
+    height: 100rpx;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    div{
+        width: 33.33%;
+        line-height: 100rpx;
+        text-align: center;
+    }
+    .active{
+        color: #eb4450;
+    }
+}
+.goodsList{
+    // margin-top: 200rpx;
+    padding: 0 20rpx;
+    .item{
+        height: 260rpx;
+        border-bottom: 1px solid #eee;
+        .box{
+            display: flex;
+            .left{
+                width: 200rpx;
+                margin-top: 30rpx;
+                image{
+                    width: 200rpx;
+                    height: 200rpx;
+                }
+            }
+            .right{
+                flex: 1;
+                padding: 30rpx;
+                .word{
+                    font-size: 16px;
+                    overflow:hidden; 
+                    text-overflow:ellipsis;
+                    display:-webkit-box; 
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:2; 
+
+                }
+                .price{
+                    color: red;
+                    margin-top: 76rpx;
+                    span{
+                        font-size: 20px;
+                    }
+                    span:first-child{
+                        font-size: 14px;
+                    }
+                    span:last-child{
+                        font-size: 14px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+.footer{
+    font-size: 18px;
+    color: #ccc;
+    text-align: center;
+}

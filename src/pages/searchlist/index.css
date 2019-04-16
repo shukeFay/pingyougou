@@ -1,0 +1,88 @@
+.mytop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.search {
+  padding: 20rpx 16rpx;
+  background-color: #eeeeee;
+}
+.search .search_input {
+  width: 100%;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  position: relative;
+}
+.search .search_input input {
+  padding-left: 70rpx;
+  color: #666;
+  font-size: 16px;
+}
+.search .search_input .word {
+  position: absolute;
+  top: 28rpx;
+  left: 40rpx;
+}
+.tab {
+  height: 100rpx;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+}
+.tab div {
+  width: 33.33%;
+  line-height: 100rpx;
+  text-align: center;
+}
+.tab .active {
+  color: #eb4450;
+}
+.goodsList {
+  padding: 0 20rpx;
+}
+.goodsList .item {
+  height: 260rpx;
+  border-bottom: 1px solid #eee;
+}
+.goodsList .item .box {
+  display: flex;
+}
+.goodsList .item .box .left {
+  width: 200rpx;
+  margin-top: 30rpx;
+}
+.goodsList .item .box .left image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.goodsList .item .box .right {
+  flex: 1;
+  padding: 30rpx;
+}
+.goodsList .item .box .right .word {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.goodsList .item .box .right .price {
+  color: red;
+  margin-top: 76rpx;
+}
+.goodsList .item .box .right .price span {
+  font-size: 20px;
+}
+.goodsList .item .box .right .price span:first-child {
+  font-size: 14px;
+}
+.goodsList .item .box .right .price span:last-child {
+  font-size: 14px;
+}
+.footer {
+  font-size: 18px;
+  color: #ccc;
+  text-align: center;
+}
