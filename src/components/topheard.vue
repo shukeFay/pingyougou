@@ -2,20 +2,20 @@
     <div>
         <!-- 搜索框 -->
     <div class="search">
-      <div class="search_input">
+      <a href="/pages/search/main" class="search_input">
         <input type="text">
         <div class="word">
           <icon type="search" size="20"></icon>
           <span>搜索</span>
         </div>
-      </div>
+      </a>
     </div>
     </div>
 </template>
 
 <script>
 export default {
-
+ 
 }
 </script>
 
