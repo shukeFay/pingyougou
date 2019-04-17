@@ -33,7 +33,7 @@
          </div>
       <div class="cart">
         <span class="iconfont icongouwuche"></span>
-        <span>购物车</span>
+        <span @click="toCart">购物车</span>
         </div>
       <div class="incart">加入购物车</div>
       <div class="buy">立即购买</div>
@@ -50,6 +50,13 @@ export default {
      detailObj:{}
     };
   },
+  methods:{
+     toCart(){
+      wx.switchTab({
+        url:"/pages/cart/main"
+      })
+    }
+  },
   async mounted() {
     // 接收参数
     let goods_id = this.$root.$mp.query.id;
@@ -60,7 +67,9 @@ export default {
     this.detailObj = res.data.data;
     console.log(res.data.data);
     
-  },
+  }
+  
+
 };
 </script>
 
