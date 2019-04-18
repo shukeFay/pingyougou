@@ -35,7 +35,7 @@
         <span class="iconfont icongouwuche"></span>
         <span @click="toCart">购物车</span>
         </div>
-      <div class="incart">加入购物车</div>
+      <div class="incart" @click="addCart">加入购物车</div>
       <div class="buy">立即购买</div>
     </div>
 
@@ -47,7 +47,8 @@ import request from "../../utils/request.js";
 export default {
   data() {
     return {
-     detailObj:{}
+     detailObj:{},
+     goodsList:{}
     };
   },
   methods:{
@@ -55,6 +56,22 @@ export default {
       wx.switchTab({
         url:"/pages/cart/main"
       })
+    },
+    addCart(){
+      this.goodsList[this.detailObj.goods_id] = this.detailObj;
+
+      this.detailObj.seleted = true;
+      this.detailObj.num = 1;
+      try {
+        wx.setStorageSync('goods',this.goodsList)
+        wx.showToast({
+          title: '亲!您的宝贝已加入购物车', //提示的内容,
+          icon: 'success', //图标,
+          duration: 2000, //延迟时间,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   async mounted() {
@@ -65,7 +82,13 @@ export default {
       goods_id: goods_id
     });
     this.detailObj = res.data.data;
-    console.log(res.data.data);
+    // console.log(res.data.data);
+    try {
+      this.goodsList = wx.getStorageSync('goods')|| {};
+    } catch (error) {
+      console.log(error);
+      
+    }
     
   }
   

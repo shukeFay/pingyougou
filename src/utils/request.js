@@ -11,10 +11,10 @@ var request = function (url, method = "get", data = {}, header = {}) {
             method: method,
             data: data,
             header: header,
-            success: function (res) {
-                resolve(res)
-                // 关闭加载框
-      wx.hideLoading();
+            success: (res)=> {   
+            // 关闭加载框
+           wx.hideLoading();
+            resolve(res)
             },
             fail: function (res) {
                 reject(res)
@@ -25,6 +25,11 @@ var request = function (url, method = "get", data = {}, header = {}) {
 // 扩展封装request方法
 request.get= function(url,data){
    return request(url,'get',data,{})
+}
+
+// 扩展一个 post 方法
+request.post = function(url, data){
+    return request(url, 'post', data, {})
 }
 
 // 暴露方法
